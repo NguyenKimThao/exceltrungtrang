@@ -10,6 +10,7 @@ namespace TrungTrang.DTO
         public string maphungtung = "";
         public string tenphungtung = "";
         public string nhacungcap = "";
+        public string loaiphutung = "";
         public long dongia = 0;
         public int soluong = 0;
         public double chietkhau = 0;

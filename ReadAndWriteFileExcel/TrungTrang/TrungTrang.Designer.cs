@@ -46,6 +46,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabBanle = new System.Windows.Forms.TabPage();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.btnCCXuatExcel = new System.Windows.Forms.Button();
+            this.dateCCStart = new System.Windows.Forms.DateTimePicker();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btnTDXuatExcel = new System.Windows.Forms.Button();
             this.dateTDEnd = new System.Windows.Forms.DateTimePicker();
@@ -53,15 +57,20 @@
             this.dateTDStart = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.btnCCXuatExcel = new System.Windows.Forms.Button();
-            this.dateCCStart = new System.Windows.Forms.DateTimePicker();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnBanNang = new System.Windows.Forms.Button();
             this.tdDateStart.SuspendLayout();
             this.tabThongKeBill.SuspendLayout();
             this.tabSuachua.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitter1
@@ -80,6 +89,7 @@
             this.tdDateStart.Controls.Add(this.tabBanle);
             this.tdDateStart.Controls.Add(this.tabPage1);
             this.tdDateStart.Controls.Add(this.tabPage2);
+            this.tdDateStart.Controls.Add(this.tabPage3);
             this.tdDateStart.Location = new System.Drawing.Point(0, 0);
             this.tdDateStart.Name = "tdDateStart";
             this.tdDateStart.SelectedIndex = 0;
@@ -88,6 +98,8 @@
             // 
             // tabThongKeBill
             // 
+            this.tabThongKeBill.Controls.Add(this.btnBanNang);
+            this.tabThongKeBill.Controls.Add(this.button1);
             this.tabThongKeBill.Controls.Add(this.btnXuatExcelThongKe);
             this.tabThongKeBill.Controls.Add(this.dateEnd);
             this.tabThongKeBill.Controls.Add(this.label5);
@@ -256,6 +268,49 @@
             this.tabPage1.Text = "Chấm công";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // btnCCXuatExcel
+            // 
+            this.btnCCXuatExcel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCCXuatExcel.Location = new System.Drawing.Point(243, 247);
+            this.btnCCXuatExcel.Name = "btnCCXuatExcel";
+            this.btnCCXuatExcel.Size = new System.Drawing.Size(139, 38);
+            this.btnCCXuatExcel.TabIndex = 16;
+            this.btnCCXuatExcel.Text = "Xuất Excel";
+            this.btnCCXuatExcel.UseVisualStyleBackColor = true;
+            this.btnCCXuatExcel.Click += new System.EventHandler(this.btnCCXuatExcel_Click);
+            // 
+            // dateCCStart
+            // 
+            this.dateCCStart.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateCCStart.CustomFormat = "dd/MM/yyyy";
+            this.dateCCStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateCCStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateCCStart.Location = new System.Drawing.Point(338, 135);
+            this.dateCCStart.Name = "dateCCStart";
+            this.dateCCStart.Size = new System.Drawing.Size(179, 31);
+            this.dateCCStart.TabIndex = 15;
+            this.dateCCStart.Value = new System.DateTime(2020, 8, 11, 13, 22, 50, 0);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(176, 135);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(119, 25);
+            this.label9.TabIndex = 14;
+            this.label9.Text = "Chọn Ngày";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(133, 29);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(469, 55);
+            this.label10.TabIndex = 13;
+            this.label10.Text = "Xuất Bill Chấm Công";
+            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.btnTDXuatExcel);
@@ -337,48 +392,91 @@
             this.label8.TabIndex = 7;
             this.label8.Text = "Xuất Bill Theo dỗi";
             // 
-            // btnCCXuatExcel
+            // tabPage3
             // 
-            this.btnCCXuatExcel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCCXuatExcel.Location = new System.Drawing.Point(243, 247);
-            this.btnCCXuatExcel.Name = "btnCCXuatExcel";
-            this.btnCCXuatExcel.Size = new System.Drawing.Size(139, 38);
-            this.btnCCXuatExcel.TabIndex = 16;
-            this.btnCCXuatExcel.Text = "Xuất Excel";
-            this.btnCCXuatExcel.UseVisualStyleBackColor = true;
-            this.btnCCXuatExcel.Click += new System.EventHandler(this.btnCCXuatExcel_Click);
+            this.tabPage3.Controls.Add(this.label15);
+            this.tabPage3.Controls.Add(this.label14);
+            this.tabPage3.Controls.Add(this.label13);
+            this.tabPage3.Controls.Add(this.label12);
+            this.tabPage3.Controls.Add(this.label11);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(642, 316);
+            this.tabPage3.TabIndex = 5;
+            this.tabPage3.Text = "About";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // dateCCStart
+            // label15
             // 
-            this.dateCCStart.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateCCStart.CustomFormat = "dd/MM/yyyy";
-            this.dateCCStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateCCStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateCCStart.Location = new System.Drawing.Point(338, 135);
-            this.dateCCStart.Name = "dateCCStart";
-            this.dateCCStart.Size = new System.Drawing.Size(179, 31);
-            this.dateCCStart.TabIndex = 15;
-            this.dateCCStart.Value = new System.DateTime(2020, 8, 11, 13, 22, 50, 0);
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(194, 153);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(294, 25);
+            this.label15.TabIndex = 12;
+            this.label15.Text = "Số điện thoại: 02963.957.669";
             // 
-            // label9
+            // label14
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(176, 135);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(119, 25);
-            this.label9.TabIndex = 14;
-            this.label9.Text = "Chọn Ngày";
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(66, 98);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(531, 25);
+            this.label14.TabIndex = 11;
+            this.label14.Text = "Địa chỉ: 613A/31 Trần Hưng Đạo, Bình Khánh, LX,  AG";
             // 
-            // label10
+            // label13
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(133, 29);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(469, 55);
-            this.label10.TabIndex = 13;
-            this.label10.Text = "Xuất Bill Chấm Công";
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(245, 248);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(145, 25);
+            this.label13.TabIndex = 10;
+            this.label13.Text = "Version: 1.0.2";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(245, 205);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(152, 25);
+            this.label12.TabIndex = 9;
+            this.label12.Text = "Author: thaonk";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(75, 23);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(522, 55);
+            this.label11.TabIndex = 8;
+            this.label11.Text = "Phần Mền Trung Trang";
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(437, 223);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(139, 38);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Xuất New";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // btnBanNang
+            // 
+            this.btnBanNang.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBanNang.Location = new System.Drawing.Point(35, 223);
+            this.btnBanNang.Name = "btnBanNang";
+            this.btnBanNang.Size = new System.Drawing.Size(139, 38);
+            this.btnBanNang.TabIndex = 8;
+            this.btnBanNang.Text = "Bàn Treo";
+            this.btnBanNang.UseVisualStyleBackColor = true;
+            this.btnBanNang.Click += new System.EventHandler(this.btnBanNang_Click);
             // 
             // TrungTrang
             // 
@@ -403,6 +501,8 @@
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -437,5 +537,13 @@
         private System.Windows.Forms.DateTimePicker dateCCStart;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Button btnBanNang;
+        private System.Windows.Forms.Button button1;
     }
 }

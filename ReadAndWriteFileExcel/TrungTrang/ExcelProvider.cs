@@ -119,6 +119,10 @@ namespace TrungTrang
                     excelRange.Cells.set_Item(index, "O", tb.dongia);
                     excelRange.Cells.set_Item(index, "T", tb.soluongphutung);
                     excelRange.Cells.set_Item(index, "V", parseDouble(tb.chietkhau) / 100);
+                    if (tb.loaiphutung == "tiencong")
+                    {
+                        excelRange.Cells.set_Item(index, "AA", 0);
+                    }
                     excelRange.Cells.set_Item(index, "AF", tb.tiencong);
                     index++;
                     i++;
@@ -165,7 +169,7 @@ namespace TrungTrang
                     {
                         string nhacungcap = ct.nhacungcap == null || ct.nhacungcap == "" ? "Trung Trang" : ct.nhacungcap;
                         string chietkhauStr = ct.chietkhau == null || ct.chietkhau == "" ? "0" : ct.chietkhau;
-                        string key = ct.maphutung + "_" + ct.dongia + "_" + nhacungcap + "_" + chietkhauStr;
+                        string key = ct.loaiphutung + "_" + ct.maphutung + "_" + ct.dongia + "_" + nhacungcap + "_" + chietkhauStr;
                         long dongia = long.Parse(ct.dongia);
                         int soluong = int.Parse(ct.soluongphutung);
                         int chietkhau = int.Parse(chietkhauStr);
@@ -174,6 +178,7 @@ namespace TrungTrang
                             ChiTietThongKe tk = new ChiTietThongKe();
                             tk.maphungtung = ct.maphutung;
                             tk.tenphungtung = ct.tenphutungvacongviec;
+                            tk.loaiphutung = ct.loaiphutung;
                             tk.nhacungcap = nhacungcap;
                             tk.dongia = dongia;
                             tk.soluong = 0;
@@ -202,7 +207,7 @@ namespace TrungTrang
                     {
                         string nhacungcap = ct.nhacungcap == null || ct.nhacungcap == "" ? "Trung Trang" : ct.nhacungcap;
                         string chietkhauStr = ct.chietkhau == null || ct.chietkhau == "" ? "0" : ct.chietkhau;
-                        string key = ct.maphutung + "_" + ct.dongia + "_" + nhacungcap + "_" + chietkhauStr;
+                        string key = ct.loaiphutung + "_" + ct.maphutung + "_" + ct.dongia + "_" + nhacungcap + "_" + chietkhauStr;
                         long dongia = long.Parse(ct.dongia);
                         int soluong = int.Parse(ct.soluong);
                         int chietkhau = int.Parse(chietkhauStr);
@@ -211,6 +216,7 @@ namespace TrungTrang
                             ChiTietThongKe tk = new ChiTietThongKe();
                             tk.maphungtung = ct.maphutung;
                             tk.tenphungtung = ct.tenphutung;
+                            tk.loaiphutung = ct.loaiphutung;
                             tk.nhacungcap = nhacungcap;
                             tk.dongia = dongia;
                             tk.chietkhau = chietkhau;
@@ -386,7 +392,7 @@ namespace TrungTrang
                 Console.WriteLine("Proccess finish");
                 res = true;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
             }
@@ -434,8 +440,13 @@ namespace TrungTrang
                 int stt = 1;
                 foreach (ChiTietThongKe ct in thongkes.Values)
                 {
-                    if (ct.maphungtung == "" || (ct.nhacungcap != "Trung Trang"))
+                    if (ct.loaiphutung == "tiencong" || ct.maphungtung == "" && (ct.loaiphutung == "phutung"))
                         continue;
+
+                    if (ct.loaiphutung == "cuahangngoai")
+                    {
+                        ct.maphungtung = ct.tenphungtung;
+                    }
                     worksheet.Range["B" + index, "B" + index].NumberFormat = "@";
                     worksheet.Range["C" + index, "C" + index].NumberFormat = "@";
                     worksheet.Range["F" + index, "F" + index].NumberFormat = @"_(* #,##0.00_);_(* (#,##0.00);_(* "" - ""??_);_(@_)";
@@ -480,8 +491,13 @@ namespace TrungTrang
                 stt = 1;
                 foreach (ChiTietThongKe ct in thongkeLes.Values)
                 {
-                    if (ct.maphungtung == "" || (ct.nhacungcap != "Trung Trang"))
+                    if (ct.loaiphutung == "tiencong" || ct.maphungtung == "" && (ct.loaiphutung == "phutung"))
                         continue;
+
+                    if (ct.loaiphutung == "cuahangngoai")
+                    {
+                        ct.maphungtung = ct.tenphungtung;
+                    }
                     worksheet.Range["B" + index, "B" + index].NumberFormat = "@";
                     worksheet.Range["C" + index, "C" + index].NumberFormat = "@";
                     worksheet.Range["F" + index, "F" + index].NumberFormat = @"_(* #,##0.00_);_(* (#,##0.00);_(* "" - ""??_);_(@_)";
@@ -526,8 +542,13 @@ namespace TrungTrang
                 stt = 1;
                 foreach (ChiTietThongKe ct in thongkeSuachuas.Values)
                 {
-                    if (ct.maphungtung == "" || (ct.nhacungcap != "Trung Trang"))
+                    if (ct.loaiphutung == "tiencong" || ct.maphungtung == "" && (ct.loaiphutung == "phutung"))
                         continue;
+
+                    if (ct.loaiphutung == "cuahangngoai")
+                    {
+                        ct.maphungtung = ct.tenphungtung;
+                    }
                     worksheet.Range["B" + index, "B" + index].NumberFormat = "@";
                     worksheet.Range["C" + index, "C" + index].NumberFormat = "@";
                     worksheet.Range["F" + index, "F" + index].NumberFormat = @"_(* #,##0.00_);_(* (#,##0.00);_(* "" - ""??_);_(@_)";
@@ -580,6 +601,92 @@ namespace TrungTrang
             ExcelObj.Quit();
             return res;
         }
+
+        public static bool CreateThongKeBanTreo(Application ExcelObj, List<HoadonSuaChua> hoadonSuachua, string folderPath, string fileDst)
+        {
+            bool res = false;
+            Workbook wbTarget = null;
+            Worksheet worksheet = null;
+            try
+            {
+                string sourceFileName = "filebantreo"; //Source excel file
+                wbTarget = CreateWorbook(ExcelObj, folderPath, sourceFileName, fileDst);
+                if (wbTarget == null)
+                {
+                    return res;
+                }
+                ////////////////////////////////////////////////////////////////////Tong ///////////////////////////////////////////
+                worksheet = (Worksheet)wbTarget.Worksheets.get_Item(1);
+                Range excelRange = worksheet.UsedRange;
+
+                Dictionary<string, ChiTietThongKe> thongkes = new Dictionary<string, ChiTietThongKe>();
+                if (!getHoadDon(thongkes, hoadonSuachua))
+                {
+                    return res;
+                }
+
+                int index = 7;
+                int stt = 1;
+                foreach (ChiTietThongKe ct in thongkes.Values)
+                {
+                    if (ct.loaiphutung == "tiencong" || ct.maphungtung == "" && (ct.loaiphutung == "phutung"))
+                        continue;
+
+                    if (ct.loaiphutung == "cuahangngoai")
+                    {
+                        ct.maphungtung = ct.tenphungtung;
+                    }
+                    worksheet.Range["B" + index, "B" + index].NumberFormat = "@";
+                    worksheet.Range["C" + index, "C" + index].NumberFormat = "@";
+                    worksheet.Range["F" + index, "F" + index].NumberFormat = @"_(* #,##0.00_);_(* (#,##0.00);_(* "" - ""??_);_(@_)";
+                    worksheet.Range["I" + index, "I" + index].NumberFormat = @"_(* #,##0.00_);_(* (#,##0.00);_(* "" - ""??_);_(@_)";
+                    worksheet.Range["G" + index, "G" + index].NumberFormat = @"0%";
+                    worksheet.Range["H" + index, "H" + index].NumberFormat = @"_(* #,##0.00_);_(* (#,##0.00);_(* "" - ""??_);_(@_)";
+
+                    excelRange.Cells.set_Item(index, "A", stt);
+                    excelRange.Cells.set_Item(index, "B", ct.maphungtung);
+                    excelRange.Cells.set_Item(index, "C", ct.tenphungtung);
+                    excelRange.Cells.set_Item(index, "D", ct.soluong);
+                    excelRange.Cells.set_Item(index, "F", ct.dongia);
+                    excelRange.Cells.set_Item(index, "G", ct.chietkhau / 100);
+                    double giaban = 0;
+                    if (ct.chietkhau > 0)
+                    {
+                        giaban = (float)(ct.dongia * (float)(1 - ct.chietkhau / 100));
+                    }
+                    excelRange.Cells.set_Item(index, "H", giaban);
+                    worksheet.Range["H" + index, "H" + index].Formula = "=" + "F" + index + "*(1-" + "G" + index + ")";
+                    excelRange.Cells.set_Item(index, "I", ct.soluong * giaban);
+                    worksheet.Range["I" + index, "I" + index].Formula = "=" + "D" + index + "*" + "H" + index;
+                    index++;
+                    stt++;
+                }
+                excelRange.Cells.set_Item(index, "B", "Tổng");
+                worksheet.Range["D" + index, "D" + index].Formula = "=SUM(D7:D" + (index - 1) + ")";
+                worksheet.Range["F" + index, "F" + index].Formula = "=SUM(F7:F" + (index - 1) + ")";
+                worksheet.Range["H" + index, "H" + index].Formula = "=SUM(H7:H" + (index - 1) + ")";
+                worksheet.Range["I" + index, "I" + index].Formula = "=SUM(I7:I" + (index - 1) + ")";
+
+                Console.WriteLine("Proccess finish");
+                res = true;
+            }
+            catch (Exception ex)
+            {
+
+            }
+            try
+            {
+                if (wbTarget != null)
+                    wbTarget.Close(true);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error close file:" + ex.Message);
+            }
+            ExcelObj.Quit();
+            return res;
+        }
     }
+
 }
 

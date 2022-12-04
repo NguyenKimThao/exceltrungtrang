@@ -12,6 +12,7 @@ namespace TrungTrang.DTO
         public string ghichu = "";
         public string ma = "";
         public string mahoadon = "";
+        public string loaiphutung = "";
         public string maphutung = "";
         public string nhacungcap = "";
         public string soluong = "";

@@ -92,7 +92,7 @@ namespace TrungTrang
                     MessageBox.Show("Không để mã hóa đơn trống", "Xuất bill sữa chữa", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                string mahoadon = txtMaHoaDonSuaChua.Text;
+                string mahoadon = txtMaHoaDonSuaChua.Text.Trim();
                 ReponseData data = HttpProvider.getChitietSuaChua(mahoadon);
                 if (checkReponseData(data, "Không tìm thấy mã hóa đơn " + mahoadon, "Xuất bill sữa chữa") == false)
                 {
@@ -260,6 +260,39 @@ namespace TrungTrang
                 MessageBox.Show("Xuất thất bại", title, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void btnBanNang_Click(object sender, EventArgs e)
+        {
+            string title = "Xuất thống kê bàn treo";
+            ReponseData resSuachua = HttpProvider.getThongKeBanTreo();
+            if (checkReponseData(resSuachua, "Không thể xuất thống kê bàn treo", title) == false)
+                return;
+            List<HoadonSuaChua> hoadonSuachuas = (List<HoadonSuaChua>)resSuachua.data;
+
+            saveFileDialog.FileName = "File_Ban_Treo_" + DateTime.Today.ToString("MM_dd");
+            if (saveFileDialog.ShowDialog() != DialogResult.OK)
+            {
+                return;
+            }
+            DisableButton();
+            bool res = ExcelProvider.CreateThongKeBanTreo(ExcelObj, hoadonSuachuas, Config.INSTANCE.folderPath, saveFileDialog.FileName);
+            EnableButton();
+            if (res == true)
+            {
+                if (uri != null)
+                    return;
+                DialogResult result = MessageBox.Show("Xuất excel thống kê bàn treo thành công\n Bạn muốn mở file lên!", title, MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                if (result == DialogResult.OK)
+                {
+                    System.Diagnostics.Process.Start(saveFileDialog.FileName);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Xuất thất bại", "Xuất thống kê bàn treo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void TrungTrang_Load(object sender, EventArgs e)
         {
             if (uri == null)
@@ -291,6 +324,10 @@ namespace TrungTrang
                 dateEnd.Value = (DateTime)Convert.ChangeType(end, typeof(DateTime));
                 btnXuatExcelThongKe_Click(null, null);
             }
+            else if (uri.LocalPath == "/exportbantreo")
+            {
+                btnBanNang_Click(null, null);
+            }
             else if (uri.LocalPath == "/exporttheodoi")
             {
                 string start = paramUrl["start"];
@@ -315,7 +352,6 @@ namespace TrungTrang
             }
             this.Close();
         }
-
 
     }
 }

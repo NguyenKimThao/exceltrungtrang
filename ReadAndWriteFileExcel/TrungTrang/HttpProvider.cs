@@ -101,6 +101,33 @@ namespace TrungTrang
             }
             return reponse;
         }
+
+        public static ReponseData getThongKeBanTreo()
+        {
+            ReponseData reponse = new ReponseData();
+            try
+            {
+                string url = Config.INSTANCE.host + "statistic/bantreo";
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+                string jsonResponse = new StreamReader(response.GetResponseStream()).ReadToEnd();
+                List<HoadonSuaChua> hoadons = JsonConvert.DeserializeObject<List<HoadonSuaChua>>(jsonResponse);
+                reponse.data = hoadons;
+                reponse.error = 0;
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message == "The remote server returned an error: (400) Bad Request.")
+                {
+                    reponse.error = -400;
+                }
+                if (ex.Message == "The remote server returned an error: (404) Not Found.")
+                {
+                    reponse.error = -404;
+                }
+            }
+            return reponse;
+        }
         public static ReponseData getReponseData<T>(string uri)
         {
             ReponseData reponse = new ReponseData();

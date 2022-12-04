@@ -14,6 +14,7 @@ namespace TrungTrang.DTO
         public string manvsuachua = "";
         public string maphutung = "";
         public string nhacungcap = "";
+        public string loaiphutung = "";
         public string soluongphutung = "";
         public string tenphutungvacongviec = "";
         public string tiencong = "";
