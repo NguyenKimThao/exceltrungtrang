@@ -618,15 +618,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:TrungTrang"
-        "ProductCode" = "8:{78B9D83D-FD98-4ACF-84A0-64BF2CDF159D}"
-        "PackageCode" = "8:{7D1CE033-1476-43C8-B18C-D95CB53CE106}"
+        "ProductCode" = "8:{C2345495-B829-49B7-95AF-79F9E36EFDCE}"
+        "PackageCode" = "8:{D9391807-D490-4CE0-B26D-137E1FEF34CE}"
         "UpgradeCode" = "8:{184CFAAE-1A27-4038-98B9-28FBFE6A5DA8}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.0.2"
+        "ProductVersion" = "8:1.0.3"
         "Manufacturer" = "8:TrungTrang"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
@@ -1168,7 +1168,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_B8BABF714C4F49B6B7CF708E7B93DE84"
             {
-            "SourcePath" = "8:..\\TrungTrang\\obj\\Debug\\TrungTrang.exe"
+            "SourcePath" = "8:..\\TrungTrang\\obj\\Release\\TrungTrang.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_D681C4F86F6849A795BF2A21C99669A6"

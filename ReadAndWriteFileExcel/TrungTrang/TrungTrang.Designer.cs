@@ -63,7 +63,6 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.btnBanNang = new System.Windows.Forms.Button();
             this.tdDateStart.SuspendLayout();
             this.tabThongKeBill.SuspendLayout();
@@ -99,7 +98,6 @@
             // tabThongKeBill
             // 
             this.tabThongKeBill.Controls.Add(this.btnBanNang);
-            this.tabThongKeBill.Controls.Add(this.button1);
             this.tabThongKeBill.Controls.Add(this.btnXuatExcelThongKe);
             this.tabThongKeBill.Controls.Add(this.dateEnd);
             this.tabThongKeBill.Controls.Add(this.label5);
@@ -117,7 +115,7 @@
             // btnXuatExcelThongKe
             // 
             this.btnXuatExcelThongKe.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnXuatExcelThongKe.Location = new System.Drawing.Point(238, 223);
+            this.btnXuatExcelThongKe.Location = new System.Drawing.Point(274, 223);
             this.btnXuatExcelThongKe.Name = "btnXuatExcelThongKe";
             this.btnXuatExcelThongKe.Size = new System.Drawing.Size(139, 38);
             this.btnXuatExcelThongKe.TabIndex = 6;
@@ -435,7 +433,7 @@
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(145, 25);
             this.label13.TabIndex = 10;
-            this.label13.Text = "Version: 1.0.2";
+            this.label13.Text = "Version: 1.0.3";
             // 
             // label12
             // 
@@ -457,20 +455,10 @@
             this.label11.TabIndex = 8;
             this.label11.Text = "Phần Mền Trung Trang";
             // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(437, 223);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(139, 38);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Xuất New";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // btnBanNang
             // 
             this.btnBanNang.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBanNang.Location = new System.Drawing.Point(35, 223);
+            this.btnBanNang.Location = new System.Drawing.Point(37, 223);
             this.btnBanNang.Name = "btnBanNang";
             this.btnBanNang.Size = new System.Drawing.Size(139, 38);
             this.btnBanNang.TabIndex = 8;
@@ -544,6 +532,5 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button btnBanNang;
-        private System.Windows.Forms.Button button1;
     }
 }
