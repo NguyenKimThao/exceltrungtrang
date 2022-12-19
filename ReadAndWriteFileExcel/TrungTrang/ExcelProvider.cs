@@ -172,7 +172,7 @@ namespace TrungTrang
                         string key = ct.loaiphutung + "_" + ct.maphutung + "_" + ct.dongia + "_" + nhacungcap + "_" + chietkhauStr;
                         long dongia = long.Parse(ct.dongia);
                         int soluong = int.Parse(ct.soluongphutung);
-                        int chietkhau = int.Parse(chietkhauStr);
+                        double chietkhau = double.Parse(chietkhauStr);
                         if (!thongkes.ContainsKey(key))
                         {
                             ChiTietThongKe tk = new ChiTietThongKe();
@@ -353,6 +353,7 @@ namespace TrungTrang
                 wbTarget = CreateWorbook(ExcelObj, folderPath, sourceFileName, fileDst);
                 if (wbTarget == null)
                 {
+                    closeExcel(wbTarget);
                     return res;
                 }
                 ////////////////////////////////////////////////////////////////////Tong ///////////////////////////////////////////
@@ -396,6 +397,13 @@ namespace TrungTrang
             {
 
             }
+            closeExcel(wbTarget);
+            ExcelObj.Quit();
+            return res;
+        }
+
+        public static void closeExcel(Workbook wbTarget)
+        {
             try
             {
                 if (wbTarget != null)
@@ -405,8 +413,6 @@ namespace TrungTrang
             {
                 Console.WriteLine("Error close file:" + ex.Message);
             }
-            ExcelObj.Quit();
-            return res;
         }
 
         public static bool CreateThongKe(Application ExcelObj, List<HoadonSuaChua> hoadonSuachua, List<HoaDonBanLe> hoadonBanLe, string folderPath, string fileDst)
@@ -420,6 +426,7 @@ namespace TrungTrang
                 wbTarget = CreateWorbook(ExcelObj, folderPath, sourceFileName, fileDst);
                 if (wbTarget == null)
                 {
+                    closeExcel(wbTarget);
                     return res;
                 }
                 ////////////////////////////////////////////////////////////////////Tong ///////////////////////////////////////////
@@ -429,10 +436,12 @@ namespace TrungTrang
                 Dictionary<string, ChiTietThongKe> thongkes = new Dictionary<string, ChiTietThongKe>();
                 if (!getHoadDon(thongkes, hoadonSuachua))
                 {
+                    closeExcel(wbTarget);
                     return res;
                 }
                 if (!getHoadDon(thongkes, hoadonBanLe))
                 {
+                    closeExcel(wbTarget);
                     return res;
                 }
 
@@ -451,7 +460,7 @@ namespace TrungTrang
                     worksheet.Range["C" + index, "C" + index].NumberFormat = "@";
                     worksheet.Range["F" + index, "F" + index].NumberFormat = @"_(* #,##0.00_);_(* (#,##0.00);_(* "" - ""??_);_(@_)";
                     worksheet.Range["I" + index, "I" + index].NumberFormat = @"_(* #,##0.00_);_(* (#,##0.00);_(* "" - ""??_);_(@_)";
-                    worksheet.Range["G" + index, "G" + index].NumberFormat = @"0%";
+                    worksheet.Range["G" + index, "G" + index].NumberFormat = @"0.00%";
                     worksheet.Range["H" + index, "H" + index].NumberFormat = @"_(* #,##0.00_);_(* (#,##0.00);_(* "" - ""??_);_(@_)";
 
                     excelRange.Cells.set_Item(index, "A", stt);
@@ -466,9 +475,9 @@ namespace TrungTrang
                         giaban = (float)(ct.dongia * (float)(1 - ct.chietkhau / 100));
                     }
                     excelRange.Cells.set_Item(index, "H", giaban);
-                    worksheet.Range["H" + index, "H" + index].Formula = "=" + "F" + index + "*(1-" + "G" + index + ")";
+                    worksheet.Range["H" + index, "H" + index].Formula = "=ROUNDDOWN(" + "F" + index + "*(1-" + "G" + index + "),-2)";
                     excelRange.Cells.set_Item(index, "I", ct.soluong * giaban);
-                    worksheet.Range["I" + index, "I" + index].Formula = "=" + "D" + index + "*" + "H" + index;
+                    worksheet.Range["I" + index, "I" + index].Formula = "=ROUNDDOWN(" + "D" + index + "*F" + index + "*(1-" + "G" + index + "),-2)";
                     index++;
                     stt++;
                 }
@@ -485,6 +494,7 @@ namespace TrungTrang
                 Dictionary<string, ChiTietThongKe> thongkeLes = new Dictionary<string, ChiTietThongKe>();
                 if (!getHoadDon(thongkeLes, hoadonBanLe))
                 {
+                    closeExcel(wbTarget);
                     return res;
                 }
                 index = 7;
@@ -502,7 +512,7 @@ namespace TrungTrang
                     worksheet.Range["C" + index, "C" + index].NumberFormat = "@";
                     worksheet.Range["F" + index, "F" + index].NumberFormat = @"_(* #,##0.00_);_(* (#,##0.00);_(* "" - ""??_);_(@_)";
                     worksheet.Range["I" + index, "I" + index].NumberFormat = @"_(* #,##0.00_);_(* (#,##0.00);_(* "" - ""??_);_(@_)";
-                    worksheet.Range["G" + index, "G" + index].NumberFormat = @"0%";
+                    worksheet.Range["G" + index, "G" + index].NumberFormat = @"0.00%";
                     worksheet.Range["H" + index, "H" + index].NumberFormat = @"_(* #,##0.00_);_(* (#,##0.00);_(* "" - ""??_);_(@_)";
 
                     excelRange.Cells.set_Item(index, "A", stt);
@@ -517,9 +527,9 @@ namespace TrungTrang
                         giaban = (float)(ct.dongia * (float)(1 - ct.chietkhau / 100));
                     }
                     excelRange.Cells.set_Item(index, "H", giaban);
-                    worksheet.Range["H" + index, "H" + index].Formula = "=" + "F" + index + "*(1-" + "G" + index + ")";
+                    worksheet.Range["H" + index, "H" + index].Formula = "=ROUNDDOWN(" + "F" + index + "*(1-" + "G" + index + "),-2)";
                     excelRange.Cells.set_Item(index, "I", ct.soluong * giaban);
-                    worksheet.Range["I" + index, "I" + index].Formula = "=" + "D" + index + "*" + "H" + index;
+                    worksheet.Range["I" + index, "I" + index].Formula = "=ROUNDDOWN(" + "D" + index + "*F" + index + "*(1-" + "G" + index + "),-2)";
                     index++;
                     stt++;
                 }
@@ -536,6 +546,7 @@ namespace TrungTrang
                 Dictionary<string, ChiTietThongKe> thongkeSuachuas = new Dictionary<string, ChiTietThongKe>();
                 if (!getHoadDon(thongkeSuachuas, hoadonSuachua))
                 {
+                    closeExcel(wbTarget);
                     return res;
                 }
                 index = 7;
@@ -553,7 +564,7 @@ namespace TrungTrang
                     worksheet.Range["C" + index, "C" + index].NumberFormat = "@";
                     worksheet.Range["F" + index, "F" + index].NumberFormat = @"_(* #,##0.00_);_(* (#,##0.00);_(* "" - ""??_);_(@_)";
                     worksheet.Range["I" + index, "I" + index].NumberFormat = @"_(* #,##0.00_);_(* (#,##0.00);_(* "" - ""??_);_(@_)";
-                    worksheet.Range["G" + index, "G" + index].NumberFormat = @"0%";
+                    worksheet.Range["G" + index, "G" + index].NumberFormat = @"0.00%";
                     worksheet.Range["H" + index, "H" + index].NumberFormat = @"_(* #,##0.00_);_(* (#,##0.00);_(* "" - ""??_);_(@_)";
 
                     excelRange.Cells.set_Item(index, "A", stt);
@@ -568,9 +579,9 @@ namespace TrungTrang
                         giaban = (float)(ct.dongia * (float)(1 - ct.chietkhau / 100));
                     }
                     excelRange.Cells.set_Item(index, "H", giaban);
-                    worksheet.Range["H" + index, "H" + index].Formula = "=" + "F" + index + "*(1-" + "G" + index + ")";
+                    worksheet.Range["H" + index, "H" + index].Formula = "=ROUNDDOWN(" + "F" + index + "*(1-" + "G" + index + "),-2)";
                     excelRange.Cells.set_Item(index, "I", ct.soluong * giaban);
-                    worksheet.Range["I" + index, "I" + index].Formula = "=" + "D" + index + "*" + "H" + index;
+                    worksheet.Range["I" + index, "I" + index].Formula = "=ROUNDDOWN(" + "D" + index + "*F" + index + "*(1-" + "G" + index + "),-2)";
                     index++;
                     stt++;
                 }
@@ -589,15 +600,7 @@ namespace TrungTrang
             {
 
             }
-            try
-            {
-                if (wbTarget != null)
-                    wbTarget.Close(true);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error close file:" + ex.Message);
-            }
+            closeExcel(wbTarget);
             ExcelObj.Quit();
             return res;
         }

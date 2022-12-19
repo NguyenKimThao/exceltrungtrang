@@ -32,6 +32,7 @@
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.tdDateStart = new System.Windows.Forms.TabControl();
             this.tabThongKeBill = new System.Windows.Forms.TabPage();
+            this.btnBanNang = new System.Windows.Forms.Button();
             this.btnXuatExcelThongKe = new System.Windows.Forms.Button();
             this.dateEnd = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
@@ -63,7 +64,6 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.btnBanNang = new System.Windows.Forms.Button();
             this.tdDateStart.SuspendLayout();
             this.tabThongKeBill.SuspendLayout();
             this.tabSuachua.SuspendLayout();
@@ -111,6 +111,17 @@
             this.tabThongKeBill.TabIndex = 2;
             this.tabThongKeBill.Text = "Thống Kê Bill";
             this.tabThongKeBill.UseVisualStyleBackColor = true;
+            // 
+            // btnBanNang
+            // 
+            this.btnBanNang.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBanNang.Location = new System.Drawing.Point(37, 223);
+            this.btnBanNang.Name = "btnBanNang";
+            this.btnBanNang.Size = new System.Drawing.Size(139, 38);
+            this.btnBanNang.TabIndex = 8;
+            this.btnBanNang.Text = "Bàn Treo";
+            this.btnBanNang.UseVisualStyleBackColor = true;
+            this.btnBanNang.Click += new System.EventHandler(this.btnBanNang_Click);
             // 
             // btnXuatExcelThongKe
             // 
@@ -433,7 +444,7 @@
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(145, 25);
             this.label13.TabIndex = 10;
-            this.label13.Text = "Version: 1.0.3";
+            this.label13.Text = "Version: 1.0.4";
             // 
             // label12
             // 
@@ -454,17 +465,6 @@
             this.label11.Size = new System.Drawing.Size(522, 55);
             this.label11.TabIndex = 8;
             this.label11.Text = "Phần Mền Trung Trang";
-            // 
-            // btnBanNang
-            // 
-            this.btnBanNang.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBanNang.Location = new System.Drawing.Point(37, 223);
-            this.btnBanNang.Name = "btnBanNang";
-            this.btnBanNang.Size = new System.Drawing.Size(139, 38);
-            this.btnBanNang.TabIndex = 8;
-            this.btnBanNang.Text = "Bàn Treo";
-            this.btnBanNang.UseVisualStyleBackColor = true;
-            this.btnBanNang.Click += new System.EventHandler(this.btnBanNang_Click);
             // 
             // TrungTrang
             // 
