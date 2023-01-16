@@ -25,6 +25,20 @@ namespace TrungTrang
             }
             return 0;
         }
+        public static double parseInt(string val)
+        {
+            if (val == null || val == "")
+                return 0;
+            try
+            {
+                return Convert.ToInt32(val);
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return 0;
+        }
         public static Workbook CreateWorbook(Application ExcelObj, string path, string name, string destinationFilePath)
         {
             try
@@ -114,16 +128,25 @@ namespace TrungTrang
                 foreach (ChiTietHoaDonSuaChua tb in hoadon.chitiet)
                 {
                     Console.WriteLine("Write chitiethoadon i= " + (i + 1) + " /" + sizeChitiet);
+                    double chietkhau = parseDouble(tb.chietkhau);
                     excelRange.Cells.set_Item(index, "B", tb.tenphutungvacongviec);
                     excelRange.Cells.set_Item(index, "I", tb.maphutung);
                     excelRange.Cells.set_Item(index, "O", tb.dongia);
                     excelRange.Cells.set_Item(index, "T", tb.soluongphutung);
-                    excelRange.Cells.set_Item(index, "V", parseDouble(tb.chietkhau) / 100);
+                    double chieuKhauInt = chietkhau * 100;
+                    if (parseInt(chieuKhauInt.ToString()) % 100 == 0)
+                    {
+                        string indexCK = "V" + index;
+                        string endCK = "X" + index;
+                        worksheet.Range[indexCK, endCK].NumberFormat = @"0%";
+                    }
+                    excelRange.Cells.set_Item(index, "V", chietkhau / 100);
                     if (tb.loaiphutung == "tiencong")
                     {
-                        excelRange.Cells.set_Item(index, "AA", 0);
+                        excelRange.Cells.set_Item(index, "AC", 0);
+                        excelRange.Cells.set_Item(index, "Y", 0);
                     }
-                    excelRange.Cells.set_Item(index, "AF", tb.tiencong);
+                    excelRange.Cells.set_Item(index, "AG", tb.tiencong);
                     index++;
                     i++;
                     if (i % maxSize == 0)
@@ -475,9 +498,9 @@ namespace TrungTrang
                         giaban = (float)(ct.dongia * (float)(1 - ct.chietkhau / 100));
                     }
                     excelRange.Cells.set_Item(index, "H", giaban);
-                    worksheet.Range["H" + index, "H" + index].Formula = "=ROUNDDOWN(" + "F" + index + "*(1-" + "G" + index + "),-2)";
+                    worksheet.Range["H" + index, "H" + index].Formula = "=ROUND(" + "F" + index + "*(1-" + "G" + index + "),-2)";
                     excelRange.Cells.set_Item(index, "I", ct.soluong * giaban);
-                    worksheet.Range["I" + index, "I" + index].Formula = "=ROUNDDOWN(" + "D" + index + "*F" + index + "*(1-" + "G" + index + "),-2)";
+                    worksheet.Range["I" + index, "I" + index].Formula = "=ROUND(" + "D" + index + "*F" + index + "*(1-" + "G" + index + "),-2)";
                     index++;
                     stt++;
                 }
@@ -527,9 +550,9 @@ namespace TrungTrang
                         giaban = (float)(ct.dongia * (float)(1 - ct.chietkhau / 100));
                     }
                     excelRange.Cells.set_Item(index, "H", giaban);
-                    worksheet.Range["H" + index, "H" + index].Formula = "=ROUNDDOWN(" + "F" + index + "*(1-" + "G" + index + "),-2)";
+                    worksheet.Range["H" + index, "H" + index].Formula = "=ROUND(" + "F" + index + "*(1-" + "G" + index + "),-2)";
                     excelRange.Cells.set_Item(index, "I", ct.soluong * giaban);
-                    worksheet.Range["I" + index, "I" + index].Formula = "=ROUNDDOWN(" + "D" + index + "*F" + index + "*(1-" + "G" + index + "),-2)";
+                    worksheet.Range["I" + index, "I" + index].Formula = "=ROUND(" + "D" + index + "*F" + index + "*(1-" + "G" + index + "),-2)";
                     index++;
                     stt++;
                 }
@@ -579,9 +602,9 @@ namespace TrungTrang
                         giaban = (float)(ct.dongia * (float)(1 - ct.chietkhau / 100));
                     }
                     excelRange.Cells.set_Item(index, "H", giaban);
-                    worksheet.Range["H" + index, "H" + index].Formula = "=ROUNDDOWN(" + "F" + index + "*(1-" + "G" + index + "),-2)";
+                    worksheet.Range["H" + index, "H" + index].Formula = "=ROUND(" + "F" + index + "*(1-" + "G" + index + "),-2)";
                     excelRange.Cells.set_Item(index, "I", ct.soluong * giaban);
-                    worksheet.Range["I" + index, "I" + index].Formula = "=ROUNDDOWN(" + "D" + index + "*F" + index + "*(1-" + "G" + index + "),-2)";
+                    worksheet.Range["I" + index, "I" + index].Formula = "=ROUND(" + "D" + index + "*F" + index + "*(1-" + "G" + index + "),-2)";
                     index++;
                     stt++;
                 }

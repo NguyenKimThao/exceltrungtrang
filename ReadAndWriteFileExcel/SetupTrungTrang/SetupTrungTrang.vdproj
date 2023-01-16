@@ -33,6 +33,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_5C319638D2DC484B87B22301747B860F"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_66E630CCBC7A2666480A41680F79F71F"
         "OwnerKey" = "8:_CFE178B02176CDC26F9A3A50D76190B3"
         "MsmSig" = "8:_UNDEFINED"
@@ -70,12 +76,6 @@
         "Entry"
         {
         "MsmKey" = "8:_C82256179A1F4509942535EC87A5E032"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_CEA01A8BC52C4690BF0CC019EB24414C"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -232,7 +232,7 @@
                 {
                 "Name" = "8:.NET Framework"
                 "Message" = "8:[VSDNETMSG]"
-                "FrameworkVersion" = "8:v4.6.1  "
+                "FrameworkVersion" = "8:v4.6.1    "
                 "AllowLaterVersions" = "11:FALSE"
                 "InstallUrl" = "8:http://go.microsoft.com/fwlink/?LinkId=671728"
                 }
@@ -320,6 +320,26 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_5C319638D2DC484B87B22301747B860F"
+            {
+            "SourcePath" = "8:..\\TrungTrang\\excel\\phieusuachua.xlsx"
+            "TargetName" = "8:phieusuachua.xlsx"
+            "Tag" = "8:"
+            "Folder" = "8:_82A28870ED15499EB96AB5B029D965FC"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_66E630CCBC7A2666480A41680F79F71F"
@@ -448,26 +468,6 @@
             {
             "SourcePath" = "8:..\\TrungTrang\\excel\\theodoi.xlsx"
             "TargetName" = "8:theodoi.xlsx"
-            "Tag" = "8:"
-            "Folder" = "8:_82A28870ED15499EB96AB5B029D965FC"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_CEA01A8BC52C4690BF0CC019EB24414C"
-            {
-            "SourcePath" = "8:..\\TrungTrang\\excel\\phieusuachua.xlsx"
-            "TargetName" = "8:phieusuachua.xlsx"
             "Tag" = "8:"
             "Folder" = "8:_82A28870ED15499EB96AB5B029D965FC"
             "Condition" = "8:"
@@ -644,15 +644,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:TrungTrang"
-        "ProductCode" = "8:{D4C4EFAC-4BAB-4AC8-BD05-EEA319FD4246}"
-        "PackageCode" = "8:{FFE41D03-652D-4CC5-819F-392C8DE47305}"
+        "ProductCode" = "8:{5CB07340-AE05-4E0E-BDE5-A968284D9B0F}"
+        "PackageCode" = "8:{CB0E5EFC-2034-4740-A559-4EF5B16EFA88}"
         "UpgradeCode" = "8:{184CFAAE-1A27-4038-98B9-28FBFE6A5DA8}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.0.4"
+        "ProductVersion" = "8:1.0.6"
         "Manufacturer" = "8:TrungTrang"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
@@ -1194,7 +1194,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_B8BABF714C4F49B6B7CF708E7B93DE84"
             {
-            "SourcePath" = "8:..\\TrungTrang\\obj\\Debug\\TrungTrang.exe"
+            "SourcePath" = "8:..\\TrungTrang\\obj\\Release\\TrungTrang.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_D681C4F86F6849A795BF2A21C99669A6"
