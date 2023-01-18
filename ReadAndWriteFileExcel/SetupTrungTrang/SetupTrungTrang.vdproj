@@ -33,12 +33,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_5C319638D2DC484B87B22301747B860F"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_66E630CCBC7A2666480A41680F79F71F"
         "OwnerKey" = "8:_CFE178B02176CDC26F9A3A50D76190B3"
         "MsmSig" = "8:_UNDEFINED"
@@ -89,6 +83,12 @@
         {
         "MsmKey" = "8:_CFE178B02176CDC26F9A3A50D76190B3"
         "OwnerKey" = "8:_372DB723E0C54E538DF5EF0C4C982CC8"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_D4A80FF1D54D4B22A69FE316250F4626"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -232,7 +232,7 @@
                 {
                 "Name" = "8:.NET Framework"
                 "Message" = "8:[VSDNETMSG]"
-                "FrameworkVersion" = "8:v4.6.1    "
+                "FrameworkVersion" = "8:v4.6.1     "
                 "AllowLaterVersions" = "11:FALSE"
                 "InstallUrl" = "8:http://go.microsoft.com/fwlink/?LinkId=671728"
                 }
@@ -320,26 +320,6 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_5C319638D2DC484B87B22301747B860F"
-            {
-            "SourcePath" = "8:..\\TrungTrang\\excel\\phieusuachua.xlsx"
-            "TargetName" = "8:phieusuachua.xlsx"
-            "Tag" = "8:"
-            "Folder" = "8:_82A28870ED15499EB96AB5B029D965FC"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_66E630CCBC7A2666480A41680F79F71F"
@@ -513,6 +493,26 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D4A80FF1D54D4B22A69FE316250F4626"
+            {
+            "SourcePath" = "8:..\\TrungTrang\\bin\\Debug\\excel\\phieusuachua.xlsx"
+            "TargetName" = "8:phieusuachua.xlsx"
+            "Tag" = "8:"
+            "Folder" = "8:_82A28870ED15499EB96AB5B029D965FC"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_DC4EE025C2E0C6B9CCFC0C7FCB4EF134"
@@ -1194,7 +1194,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_B8BABF714C4F49B6B7CF708E7B93DE84"
             {
-            "SourcePath" = "8:..\\TrungTrang\\obj\\Release\\TrungTrang.exe"
+            "SourcePath" = "8:"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_D681C4F86F6849A795BF2A21C99669A6"

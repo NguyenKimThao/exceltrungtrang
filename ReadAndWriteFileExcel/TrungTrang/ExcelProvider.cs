@@ -498,9 +498,9 @@ namespace TrungTrang
                         giaban = (float)(ct.dongia * (float)(1 - ct.chietkhau / 100));
                     }
                     excelRange.Cells.set_Item(index, "H", giaban);
-                    worksheet.Range["H" + index, "H" + index].Formula = "=ROUND(" + "F" + index + "*(1-" + "G" + index + "),-2)";
+                    worksheet.Range["H" + index, "H" + index].Formula = "=ROUND(" + "F" + index + "*(1-" + "G" + index + "),-1)";
                     excelRange.Cells.set_Item(index, "I", ct.soluong * giaban);
-                    worksheet.Range["I" + index, "I" + index].Formula = "=ROUND(" + "D" + index + "*F" + index + "*(1-" + "G" + index + "),-2)";
+                    worksheet.Range["I" + index, "I" + index].Formula = "=ROUND(" + "D" + index + "*F" + index + "*(1-" + "G" + index + "),-1)";
                     index++;
                     stt++;
                 }
@@ -550,9 +550,9 @@ namespace TrungTrang
                         giaban = (float)(ct.dongia * (float)(1 - ct.chietkhau / 100));
                     }
                     excelRange.Cells.set_Item(index, "H", giaban);
-                    worksheet.Range["H" + index, "H" + index].Formula = "=ROUND(" + "F" + index + "*(1-" + "G" + index + "),-2)";
+                    worksheet.Range["H" + index, "H" + index].Formula = "=ROUND(" + "F" + index + "*(1-" + "G" + index + "),-1)";
                     excelRange.Cells.set_Item(index, "I", ct.soluong * giaban);
-                    worksheet.Range["I" + index, "I" + index].Formula = "=ROUND(" + "D" + index + "*F" + index + "*(1-" + "G" + index + "),-2)";
+                    worksheet.Range["I" + index, "I" + index].Formula = "=ROUND(" + "D" + index + "*F" + index + "*(1-" + "G" + index + "),-1)";
                     index++;
                     stt++;
                 }
@@ -602,9 +602,9 @@ namespace TrungTrang
                         giaban = (float)(ct.dongia * (float)(1 - ct.chietkhau / 100));
                     }
                     excelRange.Cells.set_Item(index, "H", giaban);
-                    worksheet.Range["H" + index, "H" + index].Formula = "=ROUND(" + "F" + index + "*(1-" + "G" + index + "),-2)";
+                    worksheet.Range["H" + index, "H" + index].Formula = "=ROUND(" + "F" + index + "*(1-" + "G" + index + "),-1)";
                     excelRange.Cells.set_Item(index, "I", ct.soluong * giaban);
-                    worksheet.Range["I" + index, "I" + index].Formula = "=ROUND(" + "D" + index + "*F" + index + "*(1-" + "G" + index + "),-2)";
+                    worksheet.Range["I" + index, "I" + index].Formula = "=ROUND(" + "D" + index + "*F" + index + "*(1-" + "G" + index + "),-1)";
                     index++;
                     stt++;
                 }
