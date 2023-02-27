@@ -6,20 +6,42 @@ using System.Threading.Tasks;
 using System.Configuration;
 using System.Collections.Specialized;
 using System.Windows.Forms;
+using TrungTrang.DTO;
+using Newtonsoft.Json;
 
 namespace TrungTrang
 {
     public class Config
     {
         public string folderPath = ".";
-        public string host = "";
+        public HostConfig hostConfig = null;
+        public List<HostConfig> hostConfigs = new List<HostConfig>();
         public static Config INSTANCE = new Config();
+
         private Config()
         {
             try
             {
-                folderPath =Application.StartupPath+ @"\excel\";
-                host = ConfigurationSettings.AppSettings["host"];
+                folderPath = Application.StartupPath + @"\excel\";
+                hostConfigs.Add(new HostConfig("bk", "Bình Khánh", "http://bk.trungtrang.com:8080/", "613A/31 Trần Hưng Đạo, Bình Khánh, LX,  AG"));
+                hostConfigs.Add(new HostConfig("mx", "Mỹ Xuyên", "http://mx.trungtrang.com:8081/", "613A/31 Trần Hưng Đạo, Mỹ Xuyên, LX,  AG"));
+
+                if (Properties.Settings.Default.host != null && Properties.Settings.Default.host.Length > 0)
+                {
+                    foreach (HostConfig item in hostConfigs)
+                    {
+                        if (item.key == Properties.Settings.Default.host)
+                        {
+                            hostConfig = item;
+                            break;
+                        }
+                    }
+                }
+                if (hostConfig == null)
+                {
+                    hostConfig = hostConfigs[0];
+                }
+
             }
             catch (Exception ex)
             {

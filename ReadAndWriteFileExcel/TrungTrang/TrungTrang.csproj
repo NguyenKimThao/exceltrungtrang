@@ -68,10 +68,17 @@
     <Compile Include="DTO\ChiTietThongKe.cs" />
     <Compile Include="DTO\HoaDonBanLe.cs" />
     <Compile Include="DTO\HoadonSuaChua.cs" />
+    <Compile Include="DTO\HostConfig.cs" />
     <Compile Include="DTO\ReponseData.cs" />
     <Compile Include="DTO\TheoDoi.cs" />
     <Compile Include="ExcelProvider.cs" />
     <Compile Include="HttpProvider.cs" />
+    <Compile Include="LoginUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginUser.Designer.cs">
+      <DependentUpon>LoginUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TrungTrang.cs">
@@ -80,6 +87,9 @@
     <Compile Include="TrungTrang.Designer.cs">
       <DependentUpon>TrungTrang.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="LoginUser.resx">
+      <DependentUpon>LoginUser.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

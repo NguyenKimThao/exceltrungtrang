@@ -32,7 +32,7 @@ namespace TrungTrang
             dateTDStart.Value = DateTime.Now;
             dateTDEnd.Value = DateTime.Now;
             dateCCStart.Value = DateTime.Now;
-            if (args.Length != 1 || !args[0].StartsWith("trungtrang://trungtrang.myddns.me/"))
+            if (args == null || args.Length != 1 || !args[0].StartsWith("trungtrang://trungtrang.myddns.me/"))
                 return;
             uri = new Uri(args[0]);
         }
@@ -138,7 +138,7 @@ namespace TrungTrang
                     return;
                 }
                 string mahoadon = txtMaHoaDonSuaChua.Text;
-                Process.Start(Config.INSTANCE.host + "billsuachua/mahoadon/" + mahoadon + "/export");
+                Process.Start(Config.INSTANCE.hostConfig.host + "billsuachua/mahoadon/" + mahoadon + "/export");
             }
             catch (Exception ex)
             {
@@ -296,7 +296,11 @@ namespace TrungTrang
         private void TrungTrang_Load(object sender, EventArgs e)
         {
             if (uri == null)
+            {
+                labelDiaChi.Text = "Địa chỉ: " + Config.INSTANCE.hostConfig.diaChi;
+                labelUsername.Text = "Tài khoản: " + Properties.Settings.Default.username;
                 return;
+            }
             string query = uri.Query;
             if (query.StartsWith("?"))
                 query = query.Substring(1);
@@ -353,5 +357,15 @@ namespace TrungTrang
             this.Close();
         }
 
+        private void btnDangXuat_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.token = "";
+            Properties.Settings.Default.Save();
+
+            this.Hide();
+            LoginUser loginUser = new LoginUser(null);
+            loginUser.Closed += (s, args) => this.Close();
+            loginUser.Show();
+        }
     }
 }

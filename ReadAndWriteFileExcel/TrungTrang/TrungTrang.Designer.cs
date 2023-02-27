@@ -60,10 +60,12 @@
             this.label8 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.label15 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
+            this.labelDiaChi = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
+            this.btnDangXuat = new System.Windows.Forms.Button();
+            this.labelUsername = new System.Windows.Forms.Label();
             this.tdDateStart.SuspendLayout();
             this.tabThongKeBill.SuspendLayout();
             this.tabSuachua.SuspendLayout();
@@ -403,8 +405,10 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.labelUsername);
+            this.tabPage3.Controls.Add(this.btnDangXuat);
             this.tabPage3.Controls.Add(this.label15);
-            this.tabPage3.Controls.Add(this.label14);
+            this.tabPage3.Controls.Add(this.labelDiaChi);
             this.tabPage3.Controls.Add(this.label13);
             this.tabPage3.Controls.Add(this.label12);
             this.tabPage3.Controls.Add(this.label11);
@@ -420,37 +424,37 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(194, 153);
+            this.label15.Location = new System.Drawing.Point(213, 137);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(294, 25);
             this.label15.TabIndex = 12;
             this.label15.Text = "Số điện thoại: 02963.957.669";
             // 
-            // label14
+            // labelDiaChi
             // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(66, 98);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(531, 25);
-            this.label14.TabIndex = 11;
-            this.label14.Text = "Địa chỉ: 613A/31 Trần Hưng Đạo, Bình Khánh, LX,  AG";
+            this.labelDiaChi.AutoSize = true;
+            this.labelDiaChi.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDiaChi.Location = new System.Drawing.Point(66, 92);
+            this.labelDiaChi.Name = "labelDiaChi";
+            this.labelDiaChi.Size = new System.Drawing.Size(531, 25);
+            this.labelDiaChi.TabIndex = 11;
+            this.labelDiaChi.Text = "Địa chỉ: 613A/31 Trần Hưng Đạo, Bình Khánh, LX,  AG";
             // 
             // label13
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(245, 248);
+            this.label13.Location = new System.Drawing.Point(484, 269);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(145, 25);
             this.label13.TabIndex = 10;
-            this.label13.Text = "Version: 1.0.7";
+            this.label13.Text = "Version: 1.0.8";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(245, 205);
+            this.label12.Location = new System.Drawing.Point(484, 232);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(152, 25);
             this.label12.TabIndex = 9;
@@ -460,11 +464,32 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(75, 23);
+            this.label11.Location = new System.Drawing.Point(75, 13);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(522, 55);
             this.label11.TabIndex = 8;
             this.label11.Text = "Phần Mền Trung Trang";
+            // 
+            // btnDangXuat
+            // 
+            this.btnDangXuat.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDangXuat.Location = new System.Drawing.Point(268, 256);
+            this.btnDangXuat.Name = "btnDangXuat";
+            this.btnDangXuat.Size = new System.Drawing.Size(139, 38);
+            this.btnDangXuat.TabIndex = 17;
+            this.btnDangXuat.Text = "Đăng xuất";
+            this.btnDangXuat.UseVisualStyleBackColor = true;
+            this.btnDangXuat.Click += new System.EventHandler(this.btnDangXuat_Click);
+            // 
+            // labelUsername
+            // 
+            this.labelUsername.AutoSize = true;
+            this.labelUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelUsername.Location = new System.Drawing.Point(246, 195);
+            this.labelUsername.Name = "labelUsername";
+            this.labelUsername.Size = new System.Drawing.Size(184, 25);
+            this.labelUsername.TabIndex = 18;
+            this.labelUsername.Text = "Tài khoản: thaonk";
             // 
             // TrungTrang
             // 
@@ -527,10 +552,12 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label labelDiaChi;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button btnBanNang;
+        private System.Windows.Forms.Button btnDangXuat;
+        private System.Windows.Forms.Label labelUsername;
     }
 }

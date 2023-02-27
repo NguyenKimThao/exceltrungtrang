@@ -133,13 +133,17 @@ namespace TrungTrang
                     excelRange.Cells.set_Item(index, "I", tb.maphutung);
                     excelRange.Cells.set_Item(index, "O", tb.dongia);
                     excelRange.Cells.set_Item(index, "T", tb.soluongphutung);
-                    double chieuKhauInt = chietkhau * 100;
-                    if (parseInt(chieuKhauInt.ToString()) % 100 == 0)
-                    {
-                        string indexCK = "V" + index;
-                        string endCK = "X" + index;
+                    double chieuKhauInt = chietkhau * 1000;
+                    string indexCK = "V" + index;
+                    string endCK = "X" + index;
+                    if (parseInt(chieuKhauInt.ToString()) % 1000 == 0)
                         worksheet.Range[indexCK, endCK].NumberFormat = @"0%";
-                    }
+                    else if (parseInt(chieuKhauInt.ToString()) % 100 == 0)
+                        worksheet.Range[indexCK, endCK].NumberFormat = @"0.0%";
+                    else if (parseInt(chieuKhauInt.ToString()) % 10 == 0)
+                        worksheet.Range[indexCK, endCK].NumberFormat = @"0.00%";
+                    else
+                        worksheet.Range[indexCK, endCK].NumberFormat = @"0.000%";
                     excelRange.Cells.set_Item(index, "V", chietkhau / 100);
                     if (tb.loaiphutung == "tiencong")
                     {
@@ -483,7 +487,7 @@ namespace TrungTrang
                     worksheet.Range["C" + index, "C" + index].NumberFormat = "@";
                     worksheet.Range["F" + index, "F" + index].NumberFormat = @"_(* #,##0.00_);_(* (#,##0.00);_(* "" - ""??_);_(@_)";
                     worksheet.Range["I" + index, "I" + index].NumberFormat = @"_(* #,##0.00_);_(* (#,##0.00);_(* "" - ""??_);_(@_)";
-                    worksheet.Range["G" + index, "G" + index].NumberFormat = @"0.00%";
+                    worksheet.Range["G" + index, "G" + index].NumberFormat = @"0.000%";
                     worksheet.Range["H" + index, "H" + index].NumberFormat = @"_(* #,##0.00_);_(* (#,##0.00);_(* "" - ""??_);_(@_)";
 
                     excelRange.Cells.set_Item(index, "A", stt);
@@ -535,7 +539,7 @@ namespace TrungTrang
                     worksheet.Range["C" + index, "C" + index].NumberFormat = "@";
                     worksheet.Range["F" + index, "F" + index].NumberFormat = @"_(* #,##0.00_);_(* (#,##0.00);_(* "" - ""??_);_(@_)";
                     worksheet.Range["I" + index, "I" + index].NumberFormat = @"_(* #,##0.00_);_(* (#,##0.00);_(* "" - ""??_);_(@_)";
-                    worksheet.Range["G" + index, "G" + index].NumberFormat = @"0.00%";
+                    worksheet.Range["G" + index, "G" + index].NumberFormat = @"0.000%";
                     worksheet.Range["H" + index, "H" + index].NumberFormat = @"_(* #,##0.00_);_(* (#,##0.00);_(* "" - ""??_);_(@_)";
 
                     excelRange.Cells.set_Item(index, "A", stt);
@@ -587,7 +591,7 @@ namespace TrungTrang
                     worksheet.Range["C" + index, "C" + index].NumberFormat = "@";
                     worksheet.Range["F" + index, "F" + index].NumberFormat = @"_(* #,##0.00_);_(* (#,##0.00);_(* "" - ""??_);_(@_)";
                     worksheet.Range["I" + index, "I" + index].NumberFormat = @"_(* #,##0.00_);_(* (#,##0.00);_(* "" - ""??_);_(@_)";
-                    worksheet.Range["G" + index, "G" + index].NumberFormat = @"0.00%";
+                    worksheet.Range["G" + index, "G" + index].NumberFormat = @"0.000%";
                     worksheet.Range["H" + index, "H" + index].NumberFormat = @"_(* #,##0.00_);_(* (#,##0.00);_(* "" - ""??_);_(@_)";
 
                     excelRange.Cells.set_Item(index, "A", stt);

@@ -19,7 +19,7 @@ namespace TrungTrang
             RegisterURLProtocol("trungtrang", name);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new TrungTrang(args));
+            Application.Run(new LoginUser(args));
         }
         public static void RegisterURLProtocol(string protocolName, string applicationPath)
         {

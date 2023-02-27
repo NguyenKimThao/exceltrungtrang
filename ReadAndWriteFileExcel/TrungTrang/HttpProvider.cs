@@ -15,7 +15,7 @@ namespace TrungTrang
         public static String host = @"http://localhost:8080/";
         public static string getJson(string uri)
         {
-            string url = Config.INSTANCE.host + uri;
+            string url = Config.INSTANCE.hostConfig.host + uri;
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
             string content = new StreamReader(response.GetResponseStream()).ReadToEnd();
@@ -27,7 +27,7 @@ namespace TrungTrang
             ReponseData reponse = new ReponseData();
             try
             {
-                string url = Config.INSTANCE.host + "billsuachua/mahoadon/" + mahoadon + "/chitiet";
+                string url = Config.INSTANCE.hostConfig.host + "billsuachua/mahoadon/" + mahoadon + "/chitiet";
                 HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
                 HttpWebResponse response = (HttpWebResponse)request.GetResponse();
                 string jsonResponse = new StreamReader(response.GetResponseStream()).ReadToEnd();
@@ -54,7 +54,7 @@ namespace TrungTrang
             ReponseData reponse = new ReponseData();
             try
             {
-                string url = Config.INSTANCE.host + "statistic/bill/chitiet?end=" + end + "&start=" + start + "&trangthai=1&loaihoadon=0";
+                string url = Config.INSTANCE.hostConfig.host + "statistic/bill/chitiet?end=" + end + "&start=" + start + "&trangthai=1&loaihoadon=0";
                 HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
                 HttpWebResponse response = (HttpWebResponse)request.GetResponse();
                 string jsonResponse = new StreamReader(response.GetResponseStream()).ReadToEnd();
@@ -80,7 +80,7 @@ namespace TrungTrang
             ReponseData reponse = new ReponseData();
             try
             {
-                string url = Config.INSTANCE.host + "statistic/bill/chitiet?end=" + end + "&start=" + start + "&trangthai=1&loaihoadon=1";
+                string url = Config.INSTANCE.hostConfig.host + "statistic/bill/chitiet?end=" + end + "&start=" + start + "&trangthai=1&loaihoadon=1";
                 HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
                 HttpWebResponse response = (HttpWebResponse)request.GetResponse();
                 string jsonResponse = new StreamReader(response.GetResponseStream()).ReadToEnd();
@@ -107,7 +107,7 @@ namespace TrungTrang
             ReponseData reponse = new ReponseData();
             try
             {
-                string url = Config.INSTANCE.host + "statistic/bantreo";
+                string url = Config.INSTANCE.hostConfig.host + "statistic/bantreo";
                 HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
                 HttpWebResponse response = (HttpWebResponse)request.GetResponse();
                 string jsonResponse = new StreamReader(response.GetResponseStream()).ReadToEnd();
@@ -133,7 +133,7 @@ namespace TrungTrang
             ReponseData reponse = new ReponseData();
             try
             {
-                string url = Config.INSTANCE.host + uri;
+                string url = Config.INSTANCE.hostConfig.host + uri;
                 HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
                 HttpWebResponse response = (HttpWebResponse)request.GetResponse();
                 string jsonResponse = new StreamReader(response.GetResponseStream()).ReadToEnd();
