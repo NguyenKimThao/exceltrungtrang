@@ -50,7 +50,7 @@ namespace TrungTrang
             {
                 txtTaiKhoan.Text = username;
             }
-            txtMatKhau.Text = Config.INSTANCE.hostConfig.host;
+
             cbbChiNhanh.DataSource = Config.INSTANCE.hostConfigs;
             cbbChiNhanh.DisplayMember = "name";
 
@@ -61,7 +61,7 @@ namespace TrungTrang
         {
             string token = Properties.Settings.Default.token;
             bool isLogin = token != null && token.Length != 0;
-            if (isLogin && false)
+            if (isLogin)
             {
                 showTrungTrang();
             }

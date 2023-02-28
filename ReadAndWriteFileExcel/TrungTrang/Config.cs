@@ -23,8 +23,8 @@ namespace TrungTrang
             try
             {
                 folderPath = Application.StartupPath + @"\excel\";
-                hostConfigs.Add(new HostConfig("bk", "Bình Khánh", "http://bk.trungtrang.com:8080/", "613A/31 Trần Hưng Đạo, Bình Khánh, LX,  AG"));
-                hostConfigs.Add(new HostConfig("mx", "Mỹ Xuyên", "http://mx.trungtrang.com:8081/", "613A/31 Trần Hưng Đạo, Mỹ Xuyên, LX,  AG"));
+                hostConfigs.Add(new HostConfig("bk", "Bình Khánh", "http://bk.trungtrang.com:8080/", "613A/31 Trần Hưng Đạo, Bình Khánh, LX, AG"));
+                hostConfigs.Add(new HostConfig("mx", "Mỹ Xuyên", "http://mx.trungtrang.com:8081/", "HTLO, Khóm Đông An 5, Mỹ Xuyên, PX, AG"));
 
                 if (Properties.Settings.Default.host != null && Properties.Settings.Default.host.Length > 0)
                 {
