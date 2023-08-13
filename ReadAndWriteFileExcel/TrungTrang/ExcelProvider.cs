@@ -51,6 +51,7 @@ namespace TrungTrang
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.ToString());
             }
             return null;
         }
@@ -83,6 +84,7 @@ namespace TrungTrang
                 excelRange.Cells.set_Item(14, "A", hoadon.yeucaukhachhang);
                 excelRange.Cells.set_Item(14, "S", hoadon.tuvansuachua);
                 excelRange.Cells.set_Item(7, "AG", hoadon.ngayban);
+                excelRange.Cells.set_Item(8, "AH", hoadon.ngaydukien);
                 excelRange.Cells.set_Item(9, "AH", hoadon.ngaythanhtoan);
 
 

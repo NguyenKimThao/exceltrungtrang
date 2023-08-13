@@ -20,6 +20,7 @@ namespace TrungTrang.DTO
         public string manvtiepnhan = "";
         public string ngayban = "";
         public string ngaysuachua = "";
+        public string ngaydukien = "";
         public string ngaythanhtoan = "";
         public string sodienthoai = "";
         public string sokhung = "";

@@ -232,7 +232,7 @@
                 {
                 "Name" = "8:.NET Framework"
                 "Message" = "8:[VSDNETMSG]"
-                "FrameworkVersion" = "8:v4.6.1       "
+                "FrameworkVersion" = "8:v4.6.1        "
                 "AllowLaterVersions" = "11:FALSE"
                 "InstallUrl" = "8:http://go.microsoft.com/fwlink/?LinkId=671728"
                 }
@@ -644,15 +644,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:TrungTrang"
-        "ProductCode" = "8:{EA9707ED-0309-4F64-8E77-04A14FBB7831}"
-        "PackageCode" = "8:{772B50B4-265F-44A9-A168-EF88106EFA7A}"
+        "ProductCode" = "8:{69C139A2-1530-41AE-8AF3-BE3083AD23E8}"
+        "PackageCode" = "8:{F9A2F83F-B030-4888-8BF3-D5CD9656753A}"
         "UpgradeCode" = "8:{184CFAAE-1A27-4038-98B9-28FBFE6A5DA8}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:2.0.1"
+        "ProductVersion" = "8:2.1.1"
         "Manufacturer" = "8:TrungTrang"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"

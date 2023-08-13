@@ -469,7 +469,7 @@
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(145, 25);
             this.label13.TabIndex = 10;
-            this.label13.Text = "Version: 2.0.1";
+            this.label13.Text = "Version: 2.1.1";
             // 
             // label12
             // 
