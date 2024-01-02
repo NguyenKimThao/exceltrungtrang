@@ -94,6 +94,12 @@ namespace TrungTrang
                 excelRange.Cells.set_Item(10, "K", "Số khung: " + hoadon.sokhung);
                 excelRange.Cells.set_Item(11, "K", "Số máy: " + hoadon.somay);
 
+                //lantoi
+                excelRange.Cells.set_Item(51, "R", hoadon.kiemtralantoi);
+                excelRange.Cells.set_Item(51, "AE", hoadon.ngayhen);
+                excelRange.Cells.set_Item(51, "AJ", hoadon.sokmhen);
+
+
                 //nvsuachua
                 string tennvsuachua = hoadon.tennvsuachua != null ? hoadon.tennvsuachua : "";
                 string[] arr = tennvsuachua.Split(' ');

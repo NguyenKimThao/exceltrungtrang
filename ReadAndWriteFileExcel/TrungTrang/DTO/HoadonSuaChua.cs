@@ -34,6 +34,9 @@ namespace TrungTrang.DTO
         public string tuvansuachua = "";
         public string yeucaukhachhang = "";
         public string biensoxe = "";
+        public string kiemtralantoi = "";
+        public string ngayhen = "";
+        public string sokmhen = "";
         public List<ChiTietHoaDonSuaChua> chitiet = new List<ChiTietHoaDonSuaChua>();
     }
 }
